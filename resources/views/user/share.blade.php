@@ -1,11 +1,20 @@
 @extends('layouts.master')
 
 @section('content')
+	<section class="heading">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><i class="fa fa-plus-circle"></i> Share a Recipe</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Share a Recipe</h2>
 					<div class="card">
 					{!! Form::open(['role' => 'form', 'files' => true]) !!}
 					{{-- <form action="/user/share" method="POST" role="form" enctype="multipart/form-data"> --}}

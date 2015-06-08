@@ -14,7 +14,16 @@
 			$data = [
 				'recipes' => \App\Recipe::leftJoin('media', function($leftJoin) {
 					$leftJoin->on('media.media_recipeid','=','recipes.id');
-				})->where('recipe_author', \Auth::user()->id)->get()
+				})
+				->where('recipe_author', \Auth::user()->id)
+				->get([
+					'recipes.id',
+					'recipes.recipe_title',
+					'recipes.created_at',
+					'recipes.recipe_slug',
+					'recipes.recipe_description',
+					'media.media_filename'
+				])
 			];
 			return view('user.recipes', $data);
 		}
@@ -53,7 +62,7 @@
 
 			$checkFavorite = \App\Favorite::where('favorites.favorites_recipeid', $recipeid)
 			->where('favorites.favorites_userid', \Auth::user()->id)
-			->get();
+			->get(['favorites.id']);
 
 			// Make sure not already favorited
 			if($checkFavorite->isEmpty()) {
@@ -94,7 +103,9 @@
 				'inviter' => \Auth::user()->display_name
 			];
 
-			$email = \App\User::where('username', $data['email'])->get();
+			$email = \App\User::where('username', $data['email'])
+			->get();
+
 			if(!$email->isEmpty()) {
 				\Session::flash('error','That user already exists in our system');
 				return \Redirect::to('/user/invite');
@@ -132,7 +143,7 @@
 
 		public function share() {
 			$data = [
-				'categories' => \App\Category::get()
+				'categories' => \App\Category::get(['id','category_title'])
 			];
 			return view('user.share', $data);
 		}

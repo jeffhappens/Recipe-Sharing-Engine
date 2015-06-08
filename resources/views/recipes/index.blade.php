@@ -1,6 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
+	<section class="heading">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><i class="fa fa-cutlery"></i> Browse Recipes</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section>
 		<div class="container">
 			<div class="row">

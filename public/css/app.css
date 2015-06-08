@@ -6234,8 +6234,12 @@ ul.dropdown-menu {
 a {
   color: #2d2d2d;
 }
+.hidden {
+  height: 0;
+}
 .btn-default {
   background: #85C329;
+  background: #2985c3;
   color: #fff;
   border: 0;
   padding: 8px 30px;
@@ -6244,9 +6248,6 @@ a {
 .btn-default:hover {
   background: #9ed847;
   color: #fff;
-}
-.fa-star {
-  color: #b29600;
 }
 .parsley-errors-list {
   list-style: none;
@@ -6292,7 +6293,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 20;
 }
 header ul {
   text-align: right;
@@ -6322,6 +6323,23 @@ header ul img {
 }
 section {
   margin: 20px 0;
+}
+section.heading {
+  /*
+	position: fixed;
+	top: 55px;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	*/
+  padding: 5px 0;
+  margin: 0 0 30px;
+  background: rgba(133, 195, 41, 0.7);
+  transition: 0.3s ease all;
+  color: #fff;
+}
+section.heading h2 {
+  font-weight: 300;
 }
 .card {
   background: rgba(255, 255, 255, 0.7);

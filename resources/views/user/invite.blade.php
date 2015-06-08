@@ -1,11 +1,23 @@
 @extends('layouts.master')
 
 @section('content')
+	<section class="heading">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>
+						<i class="fa fa-user-plus"></i>
+						Invite a Friend
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
 <section>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Invite a Friend</h2>
 				<div class="card">
 				<form action="/user/invite" method="post" role="form" data-parsley-validate>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
