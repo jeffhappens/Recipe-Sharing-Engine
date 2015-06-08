@@ -40,12 +40,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/favorite/{id}','UserController@addFavorite');
 
 
-
-
 });
-
-
-
 
 
 

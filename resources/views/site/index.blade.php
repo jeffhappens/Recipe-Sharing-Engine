@@ -12,7 +12,7 @@
 							@endif
 							<h2>{{ $recipe->recipe_title }}</h2>
 							<p><img src="https://s.gravatar.com/avatar/{{ md5($recipe->username) }}?s=24" /> By {{ $recipe->display_name }} on {{ date('m/d/Y', strtotime($recipe->created_at)) }}</p>
-							<p><i class="fa fa-star"></i> <a href="/favorite/{{ $recipe->id }}">Add to Favorites</a></p>
+							<p><i class="fa fa-star"></i> <a class="add-favorite" data-recipeid="{{ $recipe->id }}" href="/favorite/{{ $recipe->id }}">Add to Favorites</a></p>
 							<p>{{ $recipe->recipe_description }}</p>
 							<p><a class="btn btn-default" href="/recipes/{{ $recipe->id }}/{{ $recipe->recipe_slug }}">View Recipe</a></p>
 						</div>
