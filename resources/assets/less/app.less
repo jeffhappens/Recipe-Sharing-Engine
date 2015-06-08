@@ -1,0 +1,131 @@
+@import "bootstrap/bootstrap";
+
+
+.btn,
+.form-control,
+ul.dropdown-menu {
+	border-radius: 0;
+}
+
+a {
+	color: #2d2d2d;
+}
+
+.btn-default {
+	background: #85C329;
+	color: #fff;
+	border: 0;
+	padding: 8px 30px;
+	transition: 0.3s ease all;
+	&:hover {
+		background: #9ed847;
+		color: #fff;
+	}
+}
+
+
+.fa-star {
+	color: #b29600;
+}
+
+.parsley-errors-list {
+	list-style: none;
+	padding: 0 0 0 5px;
+	font-size: 14px;
+	color: red;
+}
+
+body,html {}
+body {
+	background: url(/img/confectionary.png);
+	padding-top: 55px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin-top: 10px;
+	font-family: 'Raleway';
+}
+h1,h2 {
+	font-weight: 500;
+}
+h3,h4,h5,h6 {
+	font-weight: 300;
+}
+p,ul,ol {
+	font-family: 'Open Sans';
+}
+
+.bold {
+	font-weight: 500;
+}
+
+
+header {
+	height: 55px;
+	background: #2e2d2e;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+
+	ul {
+		text-align: right;
+		padding: 10px 0;
+
+		li {
+			padding: 0 20px;
+			display: inline-block;
+			a {
+				color: #fff;
+			}
+			a:hover, a:focus {
+				color: #85C329;
+				text-decoration: none;
+			}
+
+			.header-username {
+				font-size: 12px;
+			}
+
+			ul.dropdown-menu {
+
+				li {
+					display: block;
+					padding: 0;
+				}
+
+			}
+
+		}
+
+		img { border: 1px solid #000; }
+
+	}
+
+}
+footer {}
+
+section {
+	margin: 20px 0;
+}
+
+
+
+.card {
+	background: rgba(255,255,255,0.7);
+	padding: 15px;
+	margin: 0 0 30px;
+	border: 1px solid #ededed;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
+}
+
+
+@media(max-width: 600px) {
+	.btn { width: 100%; }
+
+}
+
+
+
+
