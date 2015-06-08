@@ -50,12 +50,25 @@
 
 
 		public function addFavorite($recipeid) {
-			$favorite = new \App\Favorite;
-			$favorite->favorites_userid = \Auth::user()->id;
-			$favorite->favorites_recipeid = $recipeid;
-			$favorite->save();
-			\Session::flash('success','Added to Favorites');
-			return \Redirect::to('/recipes');
+
+			$checkFavorite = \App\Favorite::where('favorites.favorites_recipeid', $recipeid)
+			->where('favorites.favorites_userid', \Auth::user()->id)
+			->get();
+
+			// Make sure not already favorited
+			if($checkFavorite->isEmpty()) {
+				$favorite = new \App\Favorite;
+				$favorite->favorites_userid = \Auth::user()->id;
+				$favorite->favorites_recipeid = $recipeid;
+				$favorite->save();
+				\Session::flash('success','Added to Favorites');
+				return \Redirect::to('/recipes');
+			}
+			else {
+				\Session::flash('error','You have already favorited this recipe');
+				return \Redirect::to('/recipes');
+			}			
+
 		}
 
 
