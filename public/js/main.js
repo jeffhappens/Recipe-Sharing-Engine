@@ -16,7 +16,35 @@ $(function() {
 	$('a.top').click(function () {
 		$(document.body).animate({scrollTop: 0}, 500);
 		return false;
-	});	
+	});
+
+
+
+
+
+
+	$('.add-favorite-link').on('click', function(e) {
+		e.preventDefault();
+		var that = $(this);
+		var href = that.data('href');
+		var recipeid = that.data('recipeid');
+
+		$.ajax({
+			type: 'POST',
+			url: href,
+			data: {
+				_token: $('meta[name=_token]').attr('content'),
+				recipeid: recipeid
+			},
+			success: function(data) {
+				if(data.success) {
+					that.text('In my Favorites');
+				}
+			}
+
+		})
+
+	})
 
 	$('.unfavorite').on('click', function(e) {
 		e.preventDefault();

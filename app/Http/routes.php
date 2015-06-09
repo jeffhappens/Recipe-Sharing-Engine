@@ -37,10 +37,23 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/user/invite','UserController@invite');
 	Route::post('/user/invite','UserController@postInvite');
 
-	Route::get('/favorite/{id}','UserController@addFavorite');
+	//Route::get('/favorite/{id}','UserController@addFavorite');
 
 
 });
+
+Route::post('/api/favorite/{id}', function() {
+	$input = \Input::get();
+	$fave = new \App\Favorite;
+	$fave->favorites_userid = \Auth::user()->id;
+	$fave->favorites_recipeid = $input['recipeid'];
+	if($fave->save()) {
+		$response = new StdClass;
+		$response->success = true;
+		return \Response::json($response);
+	}
+});
+
 
 Route::post('/api/unfavorite', function() {
 	$input = \Input::get();
