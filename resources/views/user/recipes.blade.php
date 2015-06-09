@@ -22,16 +22,18 @@
 								@if($recipe->media_filename)
 								<div class="col-md-4">
 									<img class="img-responsive" src="/uploads/medium/{{ $recipe->media_filename }}" />
+									<p><a class="btn btn-block btn-default" href="/recipes/{{ $recipe->id }}/{{ $recipe->recipe_slug }}">View Recipe</a>
 								</div>
 								@endif
 								<div class="col-md-8">
 									<h3>{{ $recipe->recipe_title }}</h3>
+									<p>Added {{ date('m/d/Y', strtotime($recipe->created_at)) }}</p>
 									<p>{{ $recipe->recipe_description }}</p>
-									<p><a class="btn btn-default" href="/recipes/{{ $recipe->id }}/{{ $recipe->recipe_slug }}">View Recipe</a>
 								</div>
 							</div>
 						</div>
 						@endforeach
+						<p><a class="top"><i class="fa fa-2x fa-arrow-circle-o-up"></i></a></p>
 					@else
 						<h3>You have not shared any recipes :(</h3>
 						<p><a class="btn btn-default" href="/user/share">Share a Recipe</a></p>

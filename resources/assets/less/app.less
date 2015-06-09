@@ -15,6 +15,10 @@ a {
 	height: 0;
 }
 
+.editor, .editorOrdered {
+	height: 150px !important;
+}
+
 .btn-default {
 	background: #85C329;
 	background: #2985c3;
@@ -35,9 +39,24 @@ a {
 	z-index: 30;
 }
 
+#disqus_thread {
+	margin-top: 75px;
+}
+
+a.top {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	display: none;
+}
+
 .fa-star {
 	//color: #b29600;
 }
+.fa-close {
+	color: #bbb;
+}
+.fa-arrow-circle-o-up { font-size: 36px; }
 
 .parsley-errors-list {
 	list-style: none;
@@ -81,7 +100,7 @@ header {
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 20;
+	z-index: 40;
 
 	ul {
 		text-align: right;
@@ -124,24 +143,28 @@ section {
 	margin: 20px 0;
 }
 
+
 section.heading {
-	/*
-	position: fixed;
-	top: 55px;
-	left: 0;
-	right: 0;
-	z-index: 10;
-	*/
 	padding: 5px 0;
 	margin: 0 0 30px;
 	background: rgba(133,195,41,0.7);
-	transition: 0.3s ease all;
 	color: #fff;
-	//box-shadow: 0 0 10px rgba(0,0,0,0.1);
 	h2 {
-		font-weight: 300;	
+		font-weight: 300;
+		font-size: 28px;
 	}
 	
+}
+
+p.add-to-favorites {
+	margin-top: 10px;
+	padding: 10px 0;
+	text-align: right;
+
+}
+
+p.description {
+	padding: 15px 0;
 }
 
 
@@ -153,6 +176,13 @@ section.heading {
 	border: 1px solid #ededed;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
 	position: relative;
+
+	ul, ol {
+		padding: 0 0 0 20px;
+		li {
+			padding: 5px 0;
+		}
+	}
 }
 
 

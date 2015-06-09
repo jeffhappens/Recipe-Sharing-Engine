@@ -4,9 +4,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>
-						<h2>{{ $single->recipe_title }}</h2>
-					</h2>
+					<h2>{{ $single->recipe_title }}</h2>
 				</div>
 			</div>
 		</div>
@@ -15,14 +13,14 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-md-12">
 					<div class="card">
 						@foreach($media as $m)
 							<img class="img-responsive" src="/uploads/{{ $m->media_filename }}" />
 						@endforeach
-						{{-- <h2>{{ $single->recipe_title }}</h2> --}}
-						<p><i class="fa fa-star"></i> <a href="/favorite/{{ $single->id }}">Add to Favorites</a></p>
-						<p>{{ $single->recipe_description }}</p>
+						<p class="description">
+							{{ $single->recipe_description }}
+						</p>
 						<div class="row">
 							<div class="col-md-4">
 								<h4 class="bold">Ingredients</h4>
@@ -37,9 +35,11 @@
 								@endforeach
 							</div>
 						</div>
+
+						@if($single->recipe_enable_comments)
+						@include('includes.comments')
+						@endif
 					</div>
-				</div>
-				<div class="col-md-3">
 				</div>
 			</div>
 		</div>

@@ -54,7 +54,11 @@
 
 						<div class="form-group">
 							<label for="recipe_instruction">Recipe Instructions</label>
-							<textarea name="recipe_instructions" class="form-control editor"></textarea>
+							<textarea name="recipe_instructions" class="form-control editorOrdered"></textarea>
+						</div>
+						<div class="form-group">
+							<label><input type="checkbox" name="enable_comments[]" /> Allow comments for this recipe</label>
+
 						</div>
 
 						<div class="form-group">

@@ -24,6 +24,14 @@
                 menubar: false,
                 toolbar: 'bullist',
                 numlist: true,
+                skin_url: '/css/editor/light',
+                valid_elements : "-ul/-ol,-li",
+            });
+            tinymce.init({
+                selector:'.editorOrdered',
+                menubar: false,
+                toolbar: 'numlist',
+                numlist: true,
                 skin_url: '/css/editor/light'
             });
         </script>

@@ -40,6 +40,7 @@
 				})
 				->where('favorites.favorites_userid', \Auth::user()->id)
 				->join('users','users.id','=','recipes.recipe_author')
+				->orderby('recipes.created_at','desc')
 				->get([
 					'recipes.created_at',
 					'recipes.id',
@@ -152,6 +153,8 @@
 
 
 		public function postShare() {
+
+			//return \Response::json(\Input::get());
 			
 			$replaceChars = [" "];
 
@@ -161,6 +164,10 @@
 			$recipe->recipe_description = \Input::get('recipe_description');
 			$recipe->recipe_author = \Auth::user()->id;
 			$recipe->recipe_categoryid = \Input::get('recipe_categoryid');
+			if(\Input::get('enable_comments')[0] === "on") {
+				$recipe->recipe_enable_comments = 1;
+
+			}
 			$recipe->save();
 
 			$ingredients = new \App\Ingredient;

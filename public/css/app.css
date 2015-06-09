@@ -6237,6 +6237,10 @@ a {
 .hidden {
   height: 0;
 }
+.editor,
+.editorOrdered {
+  height: 150px !important;
+}
 .btn-default {
   background: #85C329;
   background: #2985c3;
@@ -6254,6 +6258,21 @@ a {
   top: 5px;
   right: 10px;
   z-index: 30;
+}
+#disqus_thread {
+  margin-top: 75px;
+}
+a.top {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: none;
+}
+.fa-close {
+  color: #bbb;
+}
+.fa-arrow-circle-o-up {
+  font-size: 36px;
 }
 .parsley-errors-list {
   list-style: none;
@@ -6300,7 +6319,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 40;
 }
 header ul {
   text-align: right;
@@ -6332,21 +6351,22 @@ section {
   margin: 20px 0;
 }
 section.heading {
-  /*
-	position: fixed;
-	top: 55px;
-	left: 0;
-	right: 0;
-	z-index: 10;
-	*/
   padding: 5px 0;
   margin: 0 0 30px;
   background: rgba(133, 195, 41, 0.7);
-  transition: 0.3s ease all;
   color: #fff;
 }
 section.heading h2 {
   font-weight: 300;
+  font-size: 28px;
+}
+p.add-to-favorites {
+  margin-top: 10px;
+  padding: 10px 0;
+  text-align: right;
+}
+p.description {
+  padding: 15px 0;
 }
 .card {
   background: rgba(255, 255, 255, 0.7);
@@ -6355,6 +6375,14 @@ section.heading h2 {
   border: 1px solid #ededed;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
   position: relative;
+}
+.card ul,
+.card ol {
+  padding: 0 0 0 20px;
+}
+.card ul li,
+.card ol li {
+  padding: 5px 0;
 }
 @media (max-width: 600px) {
   .btn {
