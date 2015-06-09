@@ -18,9 +18,9 @@
 					@foreach($recipes as $recipe)
 						<div class="card">
 							@if($recipe->media_filename)
-							<img class="img-responsive" src="/uploads/{{ $recipe->media_filename }}" />
+								<img class="img-responsive" src="/uploads/{{ $recipe->media_filename }}" />
 							@endif
-							<h2>{{ $recipe->recipe_title }}</h2>
+							<h2 class="title-over">{{ $recipe->recipe_title }}</h2>
 							<p><img src="https://s.gravatar.com/avatar/{{ md5($recipe->username) }}?s=24" /> By {{ $recipe->display_name }} on {{ date('m/d/Y', strtotime($recipe->created_at)) }}</p>
 							<p><i class="fa fa-star"></i> <a class="add-favorite" data-recipeid="{{ $recipe->id }}" href="/favorite/{{ $recipe->id }}">Add to Favorites</a></p>
 							<p>{{ $recipe->recipe_description }}</p>

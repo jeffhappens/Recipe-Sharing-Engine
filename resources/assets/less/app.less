@@ -28,6 +28,12 @@ a {
 	}
 }
 
+.unfavorite {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	z-index: 30;
+}
 
 .fa-star {
 	//color: #b29600;
@@ -43,6 +49,7 @@ a {
 body,html {}
 body {
 	background: url(/img/confectionary.png);
+	background: url(/img/symphony.png);
 	padding-top: 55px;
 }
 
@@ -53,9 +60,11 @@ h1,h2,h3,h4,h5,h6 {
 h1,h2 {
 	font-weight: 500;
 }
+
 h3,h4,h5,h6 {
 	font-weight: 300;
 }
+
 p,ul,ol {
 	font-family: 'Open Sans';
 }
@@ -128,6 +137,7 @@ section.heading {
 	background: rgba(133,195,41,0.7);
 	transition: 0.3s ease all;
 	color: #fff;
+	//box-shadow: 0 0 10px rgba(0,0,0,0.1);
 	h2 {
 		font-weight: 300;	
 	}
@@ -142,6 +152,7 @@ section.heading {
 	margin: 0 0 30px;
 	border: 1px solid #ededed;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
+	position: relative;
 }
 
 

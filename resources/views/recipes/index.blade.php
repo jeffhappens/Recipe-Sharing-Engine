@@ -15,7 +15,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Browse Recipes</h2>
 					@foreach($recipes as $recipe)
 						<div class="card">
 							<img class="img-responsive" src="/uploads/{{ $recipe->media_filename }}" />

@@ -6249,6 +6249,12 @@ a {
   background: #9ed847;
   color: #fff;
 }
+.unfavorite {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 30;
+}
 .parsley-errors-list {
   list-style: none;
   padding: 0 0 0 5px;
@@ -6257,6 +6263,7 @@ a {
 }
 body {
   background: url(/img/confectionary.png);
+  background: url(/img/symphony.png);
   padding-top: 55px;
 }
 h1,
@@ -6347,6 +6354,7 @@ section.heading h2 {
   margin: 0 0 30px;
   border: 1px solid #ededed;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 @media (max-width: 600px) {
   .btn {

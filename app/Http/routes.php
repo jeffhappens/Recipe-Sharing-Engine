@@ -42,6 +42,13 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 
+Route::post('/api/unfavorite', function() {
+	$input = \Input::get();
+	$fave = \App\Favorite::where('favorites_userid', \Auth::user()->id)
+	->where('favorites_recipeid', $input['recipeid'])->delete();
+	return \Response::json($input);
+});
+
 
 
 

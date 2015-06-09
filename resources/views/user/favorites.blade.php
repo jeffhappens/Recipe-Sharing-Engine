@@ -16,6 +16,7 @@
 			<div class="col-md-12">
 				@foreach($favorites as $favorite)
 					<div class="card">
+						<a class="unfavorite" data-recipeid="{{ $favorite->id }}" data-csrftoken="{{ csrf_token() }}" href=""><i class="fa fa-2x fa-close"></i></a>
 						<div class="row">
 							<div class="col-md-4">
 								@if($favorite->media_filename)

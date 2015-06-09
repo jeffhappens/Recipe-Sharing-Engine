@@ -2,6 +2,7 @@
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
+        <meta name="_token" content="{{ csrf_token() }}" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Recipe Sharing App</title>
         <meta name="description" content="">
