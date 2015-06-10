@@ -26,7 +26,7 @@ $(function() {
 
 		$('<div/>', {
 			class: 'alert alert-'+type,
-			html: '<p>'+text+'</p>'
+			html: '<div class="container"><p>'+text+'</p></div>'
 		})
 		.appendTo('body')
 		.fadeIn(200);
