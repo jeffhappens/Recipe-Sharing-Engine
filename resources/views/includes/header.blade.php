@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul>
-					<li><a href="/">Homepage</a></li>
+					<li><a href="/">Home</a></li>
 					@if(Auth::check())
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
