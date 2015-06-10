@@ -22,10 +22,10 @@ $(function() {
 
 
 
-	function sendAlert(type,thumb,text) {
+	function sendAlert(type,text) {
 		$('<div/>', {
 			class: 'alert alert-'+type,
-			html: '<div class="container"><p><img src="/uploads/xs/'+thumb+'" /> '+text+'</p></div>'
+			html: '<div class="container"><p>'+text+'</p></div>'
 		})
 		.appendTo('body')
 		.fadeIn(200);
@@ -55,7 +55,7 @@ $(function() {
 			success: function(data) {
 				console.log(data);
 				if(data.success) {
-					sendAlert('success',data.thumbnail[0].media_filename,data.recipe.recipe_title+' has been added to your favorites');
+					sendAlert('success',data.recipe.recipe_title+' has been added to your favorites');
 				}
 			}
 
@@ -77,7 +77,7 @@ $(function() {
 				recipeid: recipeid
 			},
 			success: function(data) {
-				sendAlert('success',null,'Item has been removed from your favorites');
+				sendAlert('success','Item has been removed from your favorites');
 				$(that).closest('.card').slideUp(200);
 			}
 		});
