@@ -6290,6 +6290,14 @@ a.top {
   z-index: 50;
   display: none;
 }
+.alert-info {
+  background: #2d2d2d;
+  color: #fff;
+  border-bottom: 1px solid #9ed847;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
 body {
   background: url(/img/confectionary.png);
   background: url(/img/symphony.png);

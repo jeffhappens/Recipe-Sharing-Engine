@@ -23,13 +23,15 @@ $(function() {
 
 
 	function sendAlert(type,text) {
+
 		$('<div/>', {
 			class: 'alert alert-'+type,
-			html: '<div class="container"><p>'+text+'</p></div>'
+			html: '<p>'+text+'</p>'
 		})
 		.appendTo('body')
 		.fadeIn(200);
 
+		// Remove the alert
 		setTimeout(function() {
 			$('.alert').slideUp(200, function() {
 				$(this).remove();
