@@ -34,7 +34,7 @@ $(function() {
 			$('.alert').slideUp(200, function() {
 				$(this).remove();
 			})
-		}, 3500)
+		}, 3000)
 	}
 
 
