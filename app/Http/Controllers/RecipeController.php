@@ -11,8 +11,18 @@
 				'recipes' => \App\Recipe::leftJoin('media', function($leftJoin) {
 					$leftJoin->on('media.media_recipeid','=','recipes.id');
 				})
+				->join('users','users.id','=','recipes.recipe_author')
 				->orderby('recipes.created_at','desc')
-				->get()
+				->get([
+					'recipes.id',
+					'recipes.recipe_title',
+					'recipes.recipe_slug',
+					'recipes.recipe_description',
+					'recipes.created_at',
+					'media.media_filename',
+					'users.display_name',
+					'users.username'
+				])
 			];
 			return view('recipes.index', $data);
 		}

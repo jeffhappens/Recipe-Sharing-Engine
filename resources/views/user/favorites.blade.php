@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2><i class="fa fa-star"></i> My Favorites</h2>
+					<h2><i class="fa fa-heart"></i> My Favorites</h2>
 				</div>
 			</div>
 		</div>

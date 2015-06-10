@@ -49,7 +49,7 @@ Route::post('/api/favorite/{id}', function($id) {
 		$response = new StdClass;
 		$response->success = false;
 		$response->errorCode = 503;
-		$response->errorText = 'You must be logged in to do that';
+		$response->errorText = \Config::get('strings.unauthorized');
 		return \Response::json($response);
 	}
 
@@ -57,10 +57,11 @@ Route::post('/api/favorite/{id}', function($id) {
 	$faveCheck = \App\Favorite::where('favorites_recipeid', $id)
 		->where('favorites_userid', \Auth::user()->id)
 		->get();
+
 	if(!$faveCheck->isEmpty()) {
 		$response = new StdClass;
 		$response->success = false;
-		$response->errorText = 'This recipe is already in your favorites';
+		$response->errorText = \Config::get('strings.alreadyFavorited');
 		return \Response::json($response);
 	}
 	else {
@@ -81,6 +82,7 @@ Route::post('/api/unfavorite', function() {
 	$input = \Input::get();
 	$fave = \App\Favorite::where('favorites_userid', \Auth::user()->id)
 	->where('favorites_recipeid', $input['recipeid'])->delete();
+	
 	return \Response::json($input);
 });
 

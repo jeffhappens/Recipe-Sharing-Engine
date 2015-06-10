@@ -18,6 +18,20 @@
 						@foreach($media as $m)
 							<img class="img-responsive" src="/uploads/{{ $m->media_filename }}" />
 						@endforeach
+							<p>
+								<img src="https://s.gravatar.com/avatar/{{ md5($single->username) }}?s=24" />
+								By {{ $single->display_name }} on {{ date('m/d/Y', strtotime($single->created_at)) }}
+							</p>
+							<p>
+								<i class="fa fa-heart"></i>
+								<a
+									class="add-favorite-link"
+									data-recipeid="{{ $single->id }}"
+									data-href="/api/favorite/{{ $single->id }}"
+									href="#"
+								>Add to Favorites</a>
+							</p>
+
 						<p class="description">
 							{{ $single->recipe_description }}
 						</p>

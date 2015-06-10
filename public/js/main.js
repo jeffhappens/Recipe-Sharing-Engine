@@ -57,7 +57,7 @@ $(function() {
 			success: function(data) {
 				console.log(data);
 				if(data.success) {
-					sendAlert('info',data.recipe.recipe_title+' has been added to your favorites');
+					sendAlert('info', data.recipe.recipe_title+' has been added to your favorites');
 				}
 				// Unauthorized attempt (not logged in)
 				else if(data.errorCode == 503) {
