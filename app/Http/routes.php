@@ -45,6 +45,14 @@ Route::group(['middleware' => 'auth'], function() {
 Route::post('/api/favorite/{id}', function($id) {
 	$input = \Input::get();
 
+	if(!\Auth::check()) {
+		$response = new StdClass;
+		$response->success = false;
+		$response->errorCode = 503;
+		$response->errorText = 'You must be logged in to do that';
+		return \Response::json($response);
+	}
+
 	// Check to make sure it is not already favorited
 	$faveCheck = \App\Favorite::where('favorites_recipeid', $id)
 		->where('favorites_userid', \Auth::user()->id)
@@ -52,6 +60,7 @@ Route::post('/api/favorite/{id}', function($id) {
 	if(!$faveCheck->isEmpty()) {
 		$response = new StdClass;
 		$response->success = false;
+		$response->errorText = 'This recipe is already in your favorites';
 		return \Response::json($response);
 	}
 	else {

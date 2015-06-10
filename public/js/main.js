@@ -59,8 +59,12 @@ $(function() {
 				if(data.success) {
 					sendAlert('info',data.recipe.recipe_title+' has been added to your favorites');
 				}
+				// Unauthorized attempt (not logged in)
+				else if(data.errorCode == 503) {
+					sendAlert('warning', data.errorText);
+				}
 				else {
-					sendAlert('warning','You have already favorited this recipe');
+					sendAlert('warning',data.errorText);
 				}
 			}
 
