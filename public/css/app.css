@@ -6228,7 +6228,8 @@ button.close {
 }
 .btn,
 .form-control,
-ul.dropdown-menu {
+ul.dropdown-menu,
+.alert {
   border-radius: 0;
 }
 a {
@@ -6282,11 +6283,12 @@ a.top {
 }
 /* TEST */
 .alert {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
+  display: none;
 }
 body {
   background: url(/img/confectionary.png);

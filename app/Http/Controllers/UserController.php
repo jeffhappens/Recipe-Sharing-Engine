@@ -210,6 +210,13 @@
 				})
 				->save(base_path().'/public/uploads/small/'.$filename);
 
+				// 36x36
+				$image = \Image::make($file)
+				->resize(36, 36, function($constraint) {
+					$constraint->aspectRatio();
+				})
+				->save(base_path().'/public/uploads/xs/'.$filename);
+
 				// Write the record to the DB
 				$media = new \App\Media;
 				$media->media_filename = $filename;

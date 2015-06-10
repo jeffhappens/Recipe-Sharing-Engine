@@ -1,8 +1,10 @@
 $(function() {
-	
+
+	// Animate alert windows off the screen	
 	$('.alert').delay(3500).slideUp(200);
 
 
+	// Back to Top button animation
 	$(window).scroll(function() {
 		if($(this).scrollTop() > 250) {
 			$('a.top').fadeIn();
@@ -12,7 +14,7 @@ $(function() {
 		}
 	})
 
-	// Back to top
+	// Back to Top button handler
 	$('a.top').click(function () {
 		$(document.body).animate({scrollTop: 0}, 500);
 		return false;
@@ -20,6 +22,20 @@ $(function() {
 
 
 
+	function sendAlert(type,thumb,text) {
+		$('<div/>', {
+			class: 'alert alert-'+type,
+			html: '<div class="container"><p><img src="/uploads/xs/'+thumb+'" /> '+text+'</p></div>'
+		})
+		.appendTo('body')
+		.fadeIn(200);
+
+		setTimeout(function() {
+			$('.alert').slideUp(200, function() {
+				$(this).remove();
+			})
+		}, 3500)
+	}
 
 
 
@@ -37,8 +53,9 @@ $(function() {
 				recipeid: recipeid
 			},
 			success: function(data) {
+				console.log(data);
 				if(data.success) {
-					that.text('In my Favorites');
+					sendAlert('success',data.thumbnail[0].media_filename,data.recipe.recipe_title+' has been added to your favorites');
 				}
 			}
 
@@ -60,7 +77,8 @@ $(function() {
 				recipeid: recipeid
 			},
 			success: function(data) {
-				$(that).closest('.card').slideUp();
+				sendAlert('success',null,'Item has been removed from your favorites');
+				$(that).closest('.card').slideUp(200);
 			}
 		});
 	})

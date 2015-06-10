@@ -50,6 +50,8 @@ Route::post('/api/favorite/{id}', function() {
 	if($fave->save()) {
 		$response = new StdClass;
 		$response->success = true;
+		$response->recipe = \App\Recipe::find($fave->favorites_recipeid);
+		$response->thumbnail = \App\Media::where('media_recipeid', $fave->favorites_recipeid)->get();
 		return \Response::json($response);
 	}
 });
