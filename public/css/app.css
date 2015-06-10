@@ -6281,35 +6281,18 @@ a.top {
   font-size: 14px;
   color: red;
 }
-/* TEST */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
 .alert {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 60;
-  display: none;
   height: 55px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 }
 .alert i {
   vertical-align: middle;
 }
-/*
-.alert-info {
-	background: #2d2d2d;
-	color: #fff;
-	border: 0;
-}
-*/
 body {
   background: url(/img/confectionary.png);
   background: url(/img/symphony.png);
@@ -6414,5 +6397,6 @@ p.description {
 .card ol li {
   padding: 5px 0;
 }
+/* Responsive Tweaks */
 
 /*# sourceMappingURL=app.css.map */
