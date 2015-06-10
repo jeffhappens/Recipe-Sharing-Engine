@@ -59,6 +59,9 @@ $(function() {
 				if(data.success) {
 					sendAlert('info',data.recipe.recipe_title+' has been added to your favorites');
 				}
+				else {
+					sendAlert('warning','You have already favorited this recipe');
+				}
 			}
 
 		})

@@ -42,16 +42,28 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 
-Route::post('/api/favorite/{id}', function() {
+Route::post('/api/favorite/{id}', function($id) {
 	$input = \Input::get();
-	$fave = new \App\Favorite;
-	$fave->favorites_userid = \Auth::user()->id;
-	$fave->favorites_recipeid = $input['recipeid'];
-	if($fave->save()) {
+
+	// Check to make sure it is not already favorited
+	$faveCheck = \App\Favorite::where('favorites_recipeid', $id)
+		->where('favorites_userid', \Auth::user()->id)
+		->get();
+	if(!$faveCheck->isEmpty()) {
 		$response = new StdClass;
-		$response->success = true;
-		$response->recipe = \App\Recipe::find($fave->favorites_recipeid);
+		$response->success = false;
 		return \Response::json($response);
+	}
+	else {
+		$fave = new \App\Favorite;
+		$fave->favorites_userid = \Auth::user()->id;
+		$fave->favorites_recipeid = $input['recipeid'];
+		if($fave->save()) {
+			$response = new StdClass;
+			$response->success = true;
+			$response->recipe = \App\Recipe::find($fave->favorites_recipeid);
+			return \Response::json($response);
+		}
 	}
 });
 
