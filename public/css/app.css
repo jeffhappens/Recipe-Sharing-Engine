@@ -6395,7 +6395,7 @@ p.description {
 }
 .card ul li,
 .card ol li {
-  padding: 5px 0;
+  padding: 2px 0;
 }
 /* Responsive Tweaks */
 @media (max-width: 768px) {
