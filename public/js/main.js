@@ -26,15 +26,18 @@ $(function() {
 
 		$('<div/>', {
 			class: 'alert alert-'+type,
-			html: '<div class="container"><p>'+text+'</p></div>'
+			html: '<div class="container">'+text+'</div>'
 		})
 		.appendTo('body')
 		.fadeIn(200);
 
 		// Remove the alert
 		setTimeout(function() {
-			$('.alert').slideUp(200, function() {
+			$('.alert').fadeOut(200, function() {
 				$(this).remove();
+				$('.overlay').fadeOut(200, function() {
+					$(this).remove();
+				});
 			})
 		}, 3000)
 	}
@@ -57,14 +60,14 @@ $(function() {
 			success: function(data) {
 				console.log(data);
 				if(data.success) {
-					sendAlert('info', data.recipe.recipe_title+' has been added to your favorites');
+					sendAlert('info', '<i class="fa fa-2x fa-check"></i> '+data.recipe.recipe_title+' has been added to your favorites');
 				}
 				// Unauthorized attempt (not logged in)
 				else if(data.errorCode == 503) {
-					sendAlert('warning', data.errorText);
+					sendAlert('warning', '<i class="fa fa-2x fa-exclamation"></i> '+data.errorText);
 				}
 				else {
-					sendAlert('warning',data.errorText);
+					sendAlert('warning', '<i class="fa fa-2x fa-exclamation"></i> '+data.errorText);
 				}
 			}
 
