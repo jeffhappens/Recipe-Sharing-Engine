@@ -6398,5 +6398,13 @@ p.description {
   padding: 5px 0;
 }
 /* Responsive Tweaks */
+@media (max-width: 768px) {
+  .card {
+    padding: 10px;
+  }
+  .card .btn {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=app.css.map */
