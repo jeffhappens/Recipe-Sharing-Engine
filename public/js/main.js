@@ -90,7 +90,15 @@ $(function() {
 			},
 			success: function(data) {
 				sendAlert('info','Item has been removed from your favorites');
-				$(that).closest('.card').slideUp(200);
+				$(that).closest('.card').slideUp(200, function() {
+					$(that).closest('.card').remove();
+					if( $('.card').length === 0) {
+						$('<div/>', {
+							class: 'container',
+							html: '<div class="row"><div class="col-md-12"><h3>You have not favorited any recipes :(</h3><p><a class="btn btn-default" href="/recipes">Browse Recipes</a></p></div></div>'
+						}).appendTo('.main');
+					}
+				});
 			}
 		});
 	})
