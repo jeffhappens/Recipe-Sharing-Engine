@@ -55,7 +55,7 @@ $(function() {
 			success: function(data) {
 				console.log(data);
 				if(data.success) {
-					sendAlert('success',data.recipe.recipe_title+' has been added to your favorites');
+					sendAlert('info',data.recipe.recipe_title+' has been added to your favorites');
 				}
 			}
 
@@ -77,7 +77,7 @@ $(function() {
 				recipeid: recipeid
 			},
 			success: function(data) {
-				sendAlert('success','Item has been removed from your favorites');
+				sendAlert('info','Item has been removed from your favorites');
 				$(that).closest('.card').slideUp(200);
 			}
 		});
