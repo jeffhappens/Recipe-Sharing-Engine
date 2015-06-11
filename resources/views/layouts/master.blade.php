@@ -34,7 +34,7 @@
                 skin_url: '/css/editor/light'
             });
         </script>
-        <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+        <!--<script src="/js/vendor/modernizr-2.8.3.min.js"></script>-->
     </head>
     <body>
         <!--[if lt IE 8]>
