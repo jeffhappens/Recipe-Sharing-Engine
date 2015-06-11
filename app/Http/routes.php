@@ -39,6 +39,9 @@ Route::group(['middleware' => 'auth'], function() {
 
 	//Route::get('/favorite/{id}','UserController@addFavorite');
 
+	Route::get('/admin','AdminController@index');
+	Route::get('/admin/users','AdminController@users');
+
 
 });
 

@@ -20,6 +20,8 @@
 				// Update the login count
 				$user = \App\User::find(\Auth::user()->id);
 				$user->increment('login_count');
+				$user->is_online = 1;
+				$user->update();
 				return \Redirect::intended();
 			}
 			// Login failed
@@ -29,6 +31,9 @@
 
 		// Log the user out
 		public function logout() {
+			$user = \App\User::find(\Auth::user()->id);
+			$user->is_online = 0;
+			$user->update();
 			\Auth::logout();
 			return \Redirect::to('/auth/login');
 		}

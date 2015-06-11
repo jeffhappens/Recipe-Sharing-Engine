@@ -6397,6 +6397,24 @@ p.description {
 .card ol li {
   padding: 2px 0;
 }
+.card .favorite-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  width: 75px;
+  height: 75px;
+  box-sizing: border-box;
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 10px;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+          clip-path: polygon(0 0, 100% 100%, 100% 0);
+  color: #bbb;
+}
+.card .favorite-badge.active a {
+  color: gold;
+}
 /* Responsive Tweaks */
 @media (max-width: 768px) {
   .card {

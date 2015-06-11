@@ -17,6 +17,9 @@
 								@if(Auth::user()->invites)
 								<li><a href="/user/invite">Invite a Friend ({{ Auth::user()->invites }})</a></li>
 								@endif
+								@if(Auth::user()->role === 'admin')
+								<li><a href="/admin">Administration</a></li>
+								@endif
 								<li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
 							</ul>
 						</li>

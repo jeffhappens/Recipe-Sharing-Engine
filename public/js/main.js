@@ -4,6 +4,7 @@ $(function() {
 	$('.alert').delay(3500).slideUp(200);
 
 
+
 	// Back to Top button animation
 	$(window).scroll(function() {
 		if($(this).scrollTop() > 250) {
@@ -41,6 +42,34 @@ $(function() {
 			})
 		}, 3000)
 	}
+
+
+
+	$('.favorite-badge a').on('click', function(e) {
+		e.preventDefault();
+		var that = $(this);
+		var href = that.data('href');
+		var recipeid = that.data('recipeid');
+		$.ajax({
+			type: 'POST',
+			url: href,
+			data: {
+				_token: $('meta[name=_token]').attr('content'),
+				recipeid: recipeid
+			},
+			success: function(data) {
+				console.log(data);
+				if(data.success) {
+					that.closest('.favorite-badge').toggleClass('active');
+					sendAlert('info','Recipe added to favorites')
+				}
+				else {
+					that.closest('.favorite-badge').toggleClass('active');
+					sendAlert('info','Recipe removed from favorites')					
+				}
+			}
+		});
+	});
 
 
 
