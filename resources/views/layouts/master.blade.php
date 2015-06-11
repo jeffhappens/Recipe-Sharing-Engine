@@ -16,24 +16,6 @@
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/app.css">
-        <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-        <script>
-            tinymce.init({
-                selector:'.editor',
-                menubar: false,
-                toolbar: 'bullist',
-                numlist: true,
-                skin_url: '/css/editor/light',
-                valid_elements : "-ul/-ol,-li",
-            });
-            tinymce.init({
-                selector:'.editorOrdered',
-                menubar: false,
-                toolbar: 'numlist',
-                numlist: true,
-                skin_url: '/css/editor/light'
-            });
-        </script>
         <!--<script src="/js/vendor/modernizr-2.8.3.min.js"></script>-->
     </head>
     <body>

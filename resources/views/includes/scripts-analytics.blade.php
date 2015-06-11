@@ -14,6 +14,28 @@
 
 <script src="/js/main.js"></script>
 
+        <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector:'.editor',
+                menubar: false,
+                toolbar: 'bullist',
+                numlist: true,
+                skin_url: '/css/editor/light',
+                valid_elements : "-ul/-ol,-li",
+            });
+            tinymce.init({
+                selector:'.editorOrdered',
+                menubar: false,
+                toolbar: 'numlist',
+                numlist: true,
+                skin_url: '/css/editor/light'
+            });
+        </script>
+
+
+
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
