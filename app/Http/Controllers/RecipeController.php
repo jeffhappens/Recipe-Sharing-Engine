@@ -36,10 +36,12 @@
 			$data = [
 				//'single' => \App\Recipe::find($id),
 				'single' => \App\Recipe::join('users','users.id','=','recipes.recipe_author')
-				->where('recipes.id', $id)
-				->get(),
+				->where('recipes.id', $id)->get(),
+
 				'media' => \App\Media::where('media_recipeid', $id)->get(),
+
 				'ingredients' => \App\Ingredient::where('ingredient_recipeid', $id)->get(),
+				
 				'instructions' => \App\Instruction::where('instructions_recipeid', $id)->get()
 			];
 			return view('recipes.single', $data);
