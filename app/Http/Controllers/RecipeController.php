@@ -52,6 +52,7 @@
 				->where('recipes.id', $id)
 				->get([
 					'recipes.id',
+					'recipes.recipe_title',
 					'recipes.recipe_description',
 					'recipes.created_at',
 					'recipes.recipe_enable_comments',
@@ -64,7 +65,7 @@
 				])
 			];
 			return view('recipes.single', $data);
-			
+
 		}
 
 	}
