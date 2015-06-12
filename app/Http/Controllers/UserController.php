@@ -183,6 +183,8 @@
 
 			if(\Request::hasFile('recipe_image')) {
 
+				$quality = 75;
+
 				$file = \Input::file('recipe_image');
 				$filename = $file->getClientOriginalName();
 
@@ -194,6 +196,7 @@
 				})
 				// Also crop this one
 				->crop(1440,500)
+				->encode('jpg', $quality)
 				->save(base_path().'/public/uploads/'.$filename);
 
 				// 500x500
@@ -201,6 +204,7 @@
 				->resize(500, 500, function($constraint) {
 					$constraint->aspectRatio();
 				})
+				->encode('jpg', $quality)
 				->save(base_path().'/public/uploads/medium/'.$filename);
 
 				// 250x250
@@ -208,6 +212,7 @@
 				->resize(250, 250, function($constraint) {
 					$constraint->aspectRatio();
 				})
+				->encode('jpg', $quality)
 				->save(base_path().'/public/uploads/small/'.$filename);
 
 				// 36x36
@@ -215,6 +220,7 @@
 				->resize(36, 36, function($constraint) {
 					$constraint->aspectRatio();
 				})
+				->encode('jpg', $quality)
 				->save(base_path().'/public/uploads/xs/'.$filename);
 
 				// Write the record to the DB

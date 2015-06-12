@@ -26,8 +26,8 @@ $(function() {
 	function sendAlert(type,text) {
 
 		$('<div/>', {
-			class: 'alert alert-'+type,
-			html: '<div class="container">'+text+'</div>'
+			class: 'alert alert-' + type,
+			html: '<div class="container">' + text + '</div>'
 		})
 		.appendTo('body')
 		.fadeIn(200);
@@ -45,11 +45,23 @@ $(function() {
 
 
 
+
+	// This needs work
+
 	$('.favorite-badge a').on('click', function(e) {
 		e.preventDefault();
 
+
 		var that = $(this);
 		var href = that.data('href');
+		var f = href.indexOf('/favorite') !=-1;
+		var u = href.indexOf('/unfavorite') !=-1;
+
+		console.log('f:'+f+' u:'+u);
+
+		if(f) { href = href.replace('/favorite','/unfavorite'); }
+		if(u) { href = href.replace('/unfavorite','/favorite'); }
+
 		var recipeid = that.data('recipeid');
 
 		var strings = {

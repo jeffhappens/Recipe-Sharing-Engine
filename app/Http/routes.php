@@ -80,10 +80,10 @@ Route::post('/api/favorite/{id}', function($id) {
 });
 
 
-Route::post('/api/unfavorite', function() {
+Route::post('/api/unfavorite/{id}', function($id) {
 	$input = \Input::get();
 	$fave = \App\Favorite::where('favorites_userid', \Auth::user()->id)
-	->where('favorites_recipeid', $input['recipeid'])->delete();
+	->where('favorites_recipeid', $id)->delete();
 	
 	return \Response::json($input);
 });
