@@ -35,7 +35,7 @@
 			$user->is_online = 0;
 			$user->update();
 			\Auth::logout();
-			return \Redirect::to('/auth/login');
+			return \Redirect::to('/');
 		}
 
 	}

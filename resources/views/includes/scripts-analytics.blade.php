@@ -4,7 +4,7 @@
 
 <!--
 <script>
-    window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.3.min.js"><\/script>')
+	window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.3.min.js"><\/script>')
 </script>
 -->
 
@@ -14,24 +14,29 @@
 
 <script src="/js/main.js"></script>
 
-        <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-        <script>
-            tinymce.init({
-                selector:'.editor',
-                menubar: false,
-                toolbar: 'bullist',
-                numlist: true,
-                skin_url: '/css/editor/light',
-                valid_elements : "-ul/-ol,-li",
-            });
-            tinymce.init({
-                selector:'.editorOrdered',
-                menubar: false,
-                toolbar: 'numlist',
-                numlist: true,
-                skin_url: '/css/editor/light'
-            });
-        </script>
+		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+		<script>
+			tinymce.init({
+				selector:'.editor',
+				menubar: false,
+				toolbar: 'bullist',
+				numlist: true,
+				skin_url: '/css/editor/light',
+				valid_elements : "-ul/-ol,-li",
+				setup : function(ed) {
+					ed.on("click", function() {
+						console.log(ed);
+					});
+				}
+			});
+			tinymce.init({
+				selector:'.editorOrdered',
+				menubar: false,
+				toolbar: 'numlist',
+				numlist: true,
+				skin_url: '/css/editor/light'
+			});
+		</script>
 
 
 
