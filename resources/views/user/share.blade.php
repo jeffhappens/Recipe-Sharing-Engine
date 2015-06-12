@@ -49,18 +49,20 @@
 
 						<div class="form-group">
 							<label for="recipe_ingredients">Recipe Ingredients</label>
-							<textarea name="recipe_ingredients" class="form-control editor"></textarea>
+							<textarea name="recipe_ingredients" class="form-control editor">
+							</textarea>
 						</div>
 
 						<div class="form-group">
 							<label for="recipe_instruction">Recipe Instructions</label>
-							<textarea name="recipe_instructions" class="form-control editorOrdered"></textarea>
+							<textarea name="recipe_instructions" class="form-control editorOrdered">
+							</textarea>
 						</div>
 						<div class="form-group">
-							<label><input type="checkbox" name="enable_comments[]" /> Allow comments for this recipe</label>
-
+							<label>
+								<input type="checkbox" name="enable_comments[]" /> Allow comments for this recipe
+							</label>
 						</div>
-
 						<div class="form-group">
 							<button type="submit" name="submit_share" class="btn btn-default">Share Recipe</button>
 						</div>

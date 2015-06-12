@@ -4,6 +4,12 @@ $(function() {
 	$('.alert').delay(3500).slideUp(200);
 
 
+	$(document).on('click', function(e) {
+		$(e).find('#mceu_0').click();
+	})
+
+
+
 	// Back to Top button animation
 	$(window).scroll(function() {
 		if($(this).scrollTop() > 250) {
