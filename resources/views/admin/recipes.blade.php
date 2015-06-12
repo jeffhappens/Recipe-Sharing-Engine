@@ -1,7 +1,5 @@
 @extends('layouts.master')
-
 @section('content')
-
 <section class="heading">
 	<div class="container">
 		<div class="row">
@@ -28,24 +26,24 @@
 			</div>
 			<div class="col-md-9">
 				<div class="card">
-				<table class="table table-striped table-hover table-bordered">
-					<tr>
-						<th>Recipe Title</th>
-						<th>Author</th>
-						<th>Date Added</th>
-					</tr>
-					@foreach($recipes as $recipe)
+					<h4>All Recipes</h4>
+					<table class="table table-striped table-hover table-bordered">
 						<tr>
-							<td>{{ $recipe->recipe_title }}</td>
-							<td>{{ $recipe->username }}</td>
-							<td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($recipe->created_at))->diffForHumans() }}</td>
+							<th>Recipe Title</th>
+							<th>Author</th>
+							<th>Date Added</th>
 						</tr>
-					@endforeach
-				</table>
-			</div>
+						@foreach($recipes as $recipe)
+							<tr>
+								<td>{{ $recipe->recipe_title }}</td>
+								<td>{{ $recipe->username }}</td>
+								<td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($recipe->created_at))->diffForHumans() }}</td>
+							</tr>
+						@endforeach
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
 @stop
