@@ -161,13 +161,12 @@
 
 			$recipe = new \App\Recipe;
 			$recipe->recipe_title = \Input::get('recipe_title');
-			$recipe->recipe_slug = str_replace($replaceChars,'-', strtolower(\Input::get('recipe_title')));
+			$recipe->recipe_slug = str_slug(\Input::get('recipe_title'));
 			$recipe->recipe_description = \Input::get('recipe_description');
 			$recipe->recipe_author = \Auth::user()->id;
 			$recipe->recipe_categoryid = \Input::get('recipe_categoryid');
 			if(\Input::get('enable_comments')[0] === "on") {
 				$recipe->recipe_enable_comments = 1;
-
 			}
 			$recipe->save();
 

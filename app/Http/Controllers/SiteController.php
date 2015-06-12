@@ -9,6 +9,7 @@
 	class SiteController extends Controller {
 
 		public function index() {
+
 			$data = [
 				'recipes' => \App\Recipe::join('users','users.id','=','recipes.recipe_author')
 				->leftJoin('media', function($leftJoin) {
