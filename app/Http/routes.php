@@ -60,7 +60,7 @@ Route::post('/api/favorite/{id}', function($id) {
 	// Check to make sure it is not already favorited
 	$faveCheck = \App\Favorite::where('favorites_recipeid', $id)
 		->where('favorites_userid', \Auth::user()->id)
-		->get();
+		->get(['favorites.id']);
 
 	if(!$faveCheck->isEmpty()) {
 		$response = new StdClass;
