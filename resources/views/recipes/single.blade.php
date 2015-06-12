@@ -53,7 +53,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						@if($sin->recipe_enable_comments)
-							@include('includes.comments');
+							@include('includes.comments')
 						@endif
 					</div>
 				</div>
