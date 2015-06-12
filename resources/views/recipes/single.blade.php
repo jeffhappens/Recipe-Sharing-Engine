@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					@foreach($single as $sin)
-					<h2>{{ $sin->recipe_title }}</h2>
+						<h2>{{ $sin->recipe_title }}</h2>
 					@endforeach
 				</div>
 			</div>
@@ -14,57 +14,50 @@
 
 	<section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						@foreach($media as $m)
-							<img class="img-responsive" src="/uploads/{{ $m->media_filename }}" />
-						@endforeach
+			<div class="card">
+				@if(!Auth::check())
+				@else
+					<div class="favorite-badge @if($sin->favorites_userid) active @endif">
+						<a href="" data-href="/api/favorite/{{ $sin->id }}" data-recipeid="{{ $sin->id }}">
+							<i class="fa fa-2x fa-star"></i>
+						</a>
+					</div>
+				@endif
 
-						<br/>
-
-						@foreach($single as $sin)
-							<p>
-								<img src="https://s.gravatar.com/avatar/{{ md5($sin->username) }}?s=24" />
-								By {{ $sin->display_name }} on {{ date('m/d/Y', strtotime($sin->created_at)) }}
-							</p>
-							<p>
-								<i class="fa fa-heart"></i>
-								<a
-									class="add-favorite-link"
-									data-recipeid="{{ $sin->id }}"
-									data-href="/api/favorite/{{ $sin->id }}"
-									href="#"
-								>Add to Favorites</a>
-							</p>
-
-						<p class="description">
-							{{ $sin->recipe_description }}
-						</p>
-						@endforeach
-						<div class="row">
-							<div class="col-md-4">
-								<h4 class="bold">Ingredients</h4>
-								@foreach($ingredients as $ingredient)
-									{!! $ingredient->ingredient_name !!}
-								@endforeach
-							</div>
-							<div class="col-md-8">
-								<h4 class="bold">Instructions</h4>
-								@foreach($instructions as $instruction)
-									{!! $instruction->instructions_name !!}
-								@endforeach
-							</div>
-						</div>
-
-						@foreach($single as $sin)
-
-						@if($sin->recipe_enable_comments)
-						@include('includes.comments')
-						@endif
-						@endforeach
+			@foreach($single as $sin)
+				<div class="row">
+					<div class="col-md-12">
+						<img class="img-responsive" src="/uploads/{{ $sin->media_filename }}" />
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<br/>
+						<p>
+							<img src="http://www.gravatar.com/avatar/{{ md5($sin->username) }}?s=24" /> Author: {{ $sin->display_name }} |
+							{{ \Carbon\Carbon::createFromTimeStamp(strtotime($sin->created_at))->diffForHumans() }}
+						</p>
+						<p>{{ $sin->recipe_description }}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<h3>Ingredients</h3>
+						{!! $sin->ingredient_name !!}
+					</div>
+					<div class="col-md-7">
+						<h3>Instructions</h3>
+						{!! $sin->instructions_name !!}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						@if($sin->recipe_enable_comments)
+							@include('includes.comments');
+						@endif
+					</div>
+				</div>
+			@endforeach
 			</div>
 		</div>
 	</section>

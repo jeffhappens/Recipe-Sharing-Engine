@@ -11,6 +11,9 @@
 				'recipes' => \App\Recipe::leftJoin('media', function($leftJoin) {
 					$leftJoin->on('media.media_recipeid','=','recipes.id');
 				})
+				->leftJoin('favorites', function($leftJoin) {
+					$leftJoin->on('favorites.favorites_recipeid','=','recipes.id');
+				})				
 				->join('users','users.id','=','recipes.recipe_author')
 				->orderby('recipes.created_at','desc')
 				->get([
@@ -33,18 +36,28 @@
 
 
 		public function single($id,$slug) {
+
+			// get recipes
+			// left join media
+			// join users
 			$data = [
-				//'single' => \App\Recipe::find($id),
+				'single' => \App\Recipe::leftJoin('users', function($leftJoin) {
+					$leftJoin->on('users.id','=','recipes.recipe_author');
+				})->join('media','media.media_recipeid','=','recipes.id')
+				->join('instructions','instructions.instructions_recipeid','=','recipes.id')
+				->join('ingredients','ingredients.ingredient_recipeid','=','recipes.id')
+				->where('recipes.id', $id)
+				->get()
+			];
+
+/*			$data = [
 				'single' => \App\Recipe::join('users','users.id','=','recipes.recipe_author')
 				->where('recipes.id', $id)->get(),
-
 				'media' => \App\Media::where('media_recipeid', $id)->get(),
-
-				'ingredients' => \App\Ingredient::where('ingredient_recipeid', $id)->get(),
-				
+				'ingredients' => \App\Ingredient::where('ingredient_recipeid', $id)->get(),				
 				'instructions' => \App\Instruction::where('instructions_recipeid', $id)->get()
 			];
-			return view('recipes.single', $data);
+*/			return view('recipes.single', $data);
 		}
 
 	}

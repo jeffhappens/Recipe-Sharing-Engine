@@ -17,6 +17,15 @@
 				<div class="col-md-12">
 					@foreach($recipes as $recipe)
 						<div class="card">
+							@if(!Auth::check())
+							@else
+							<div class="favorite-badge @if($recipe->favorites_userid) active @endif">
+								<a href="" data-href="/api/favorite/{{ $recipe->id }}" data-recipeid="{{ $recipe->id }}">
+									<i class="fa fa-2x fa-star"></i>
+								</a>
+							</div>
+							@endif
+
 							<img class="img-responsive" src="/uploads/{{ $recipe->media_filename }}" />
 							<h3>
 								{{ $recipe->recipe_title }}
@@ -24,16 +33,6 @@
 							<p>
 								<img src="https://s.gravatar.com/avatar/{{ md5($recipe->username) }}?s=24" />
 								By {{ $recipe->display_name }} on {{ date('m/d/Y', strtotime($recipe->created_at)) }}
-							</p>
-							<p>
-								<i class="fa fa-heart"></i>
-								<a
-									class="add-favorite-link"
-									data-recipeid="{{ $recipe->id }}"
-									data-href="/api/favorite/{{ $recipe->id }}"
-									href="#">
-									Add to Favorites
-								</a>
 							</p>
 							<p>
 								{{ $recipe->recipe_description }}
