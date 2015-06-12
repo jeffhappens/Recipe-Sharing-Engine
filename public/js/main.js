@@ -51,6 +51,7 @@ $(function() {
 		var href = that.data('href');
 		// Determine whether to fave or unfave
 		// Active = has been faved, needs to be unfaved
+
 		if(active)
 			var href = '/api/unfavorite/'+recipeid;
 
@@ -67,7 +68,7 @@ $(function() {
 				recipeid: recipeid
 			},
 			success: function(data) {
-				console.log(data);
+
 				if(data.success) {
 					that.closest('.favorite-badge').toggleClass('active');
 					sendAlert('info', strings.added)

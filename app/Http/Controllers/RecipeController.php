@@ -47,7 +47,17 @@
 				->join('instructions','instructions.instructions_recipeid','=','recipes.id')
 				->join('ingredients','ingredients.ingredient_recipeid','=','recipes.id')
 				->where('recipes.id', $id)
-				->get()
+				->get([
+					'recipes.id',
+					'recipes.recipe_description',
+					'recipes.created_at',
+					'recipes.recipe_enable_comments',
+					'users.display_name',
+					'media.media_filename',
+					'ingredients.ingredient_name',
+					'instructions.instructions_name'
+
+				])
 			];
 
 /*			$data = [
