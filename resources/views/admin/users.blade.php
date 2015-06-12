@@ -28,26 +28,47 @@
 			</div>
 			<div class="col-md-9">
 				<div class="card">
-				<table class="table table-striped table-hover table-bordered">
-					<tr>
-						<th>Username</th>
-						<th>Display Name</th>
-						<th>Joined On</th>
-						<th>Logins</th>
-					</tr>
-					@foreach($users as $user)
+					<h4>Active Users</h3>
+					<table class="table table-striped table-hover table-bordered">
+						<tr>
+							<th>Username</th>
+							<th>Display Name</th>
+							<th>Joined On</th>
+							<th>Logins</th>
+						</tr>
+						@foreach($users as $user)
+						@if(!$user->invite_token)
 						<tr>
 							<td>{{ $user->username }}</td>
 							<td>{{ $user->display_name }}</td>
 							<td>{{ $user->created_at }}</td>
 							<td>{{ $user->login_count }}</td>
 						</tr>
-					@endforeach
-				</table>
-			</div>
+						@endif
+						@endforeach
+					</table>
+				</div>
+				<div class="card">
+					<h4>Pending Users</h3>
+					<table class="table table-striped table-hover table-bordered">
+						<tr>
+							<th>Username</th>
+							<th>Display Name</th>
+							<th>Invited On</th>
+						</tr>
+						@foreach($users as $user)
+							@if($user->invite_token)
+							<tr>
+								<td>{{ $user->username }}</td>
+								<td>{{ $user->display_name }}</td>
+								<td>{{ $user->created_at }}</td>
+							</tr>
+							@endif
+						@endforeach
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
 @stop
