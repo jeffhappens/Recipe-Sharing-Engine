@@ -51,18 +51,13 @@ $(function() {
 	$('.favorite-badge a').on('click', function(e) {
 		e.preventDefault();
 
-
 		var that = $(this);
-		var href = that.data('href');
-		var f = href.indexOf('/favorite') !=-1;
-		var u = href.indexOf('/unfavorite') !=-1;
-
-		console.log('f:'+f+' u:'+u);
-
-		if(f) { href = href.replace('/favorite','/unfavorite'); }
-		if(u) { href = href.replace('/unfavorite','/favorite'); }
-
+		var active = that.parent().hasClass('active');		
 		var recipeid = that.data('recipeid');
+
+		var href = that.data('href'); 
+		if(active)
+			var href = '/api/unfavorite/'+recipeid;
 
 		var strings = {
 			added: 'Recipe added to Favorites',
@@ -99,10 +94,10 @@ $(function() {
 
 		$.ajax({
 			type: 'POST',
-			url: '/api/unfavorite',
+			url: '/api/unfavorite/'+recipeid,
 			data: {
 				_token: csrftoken,
-				recipeid: recipeid
+				//recipeid: recipeid
 			},
 			success: function(data) {
 
@@ -110,7 +105,7 @@ $(function() {
 
 				sendAlert('info','Item has been removed from your favorites');
 
-				$(that).closest('.card').slideUp(200, function() {
+				$(that).closest('.card').fadeOut(200, function() {
 
 					$(that).closest('.card').remove();
 
