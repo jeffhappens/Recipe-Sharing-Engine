@@ -4,7 +4,6 @@ $(function() {
 	$('.alert').delay(3500).slideUp(200);
 
 
-
 	// Back to Top button animation
 	$(window).scroll(function() {
 		if($(this).scrollTop() > 250) {
@@ -13,14 +12,11 @@ $(function() {
 		else {
 			$('a.top').fadeOut();
 		}
-	})
-
-	// Back to Top button handler
+	});
 	$('a.top').click(function () {
 		$(document.body).animate({scrollTop: 0}, 500);
 		return false;
 	});
-
 
 
 	function sendAlert(type,text) {
@@ -31,7 +27,6 @@ $(function() {
 		})
 		.appendTo('body')
 		.fadeIn(200);
-
 		// Remove the alert
 		setTimeout(function() {
 			$('.alert').fadeOut(200, function() {
@@ -44,8 +39,6 @@ $(function() {
 	}
 
 
-
-
 	// This needs work
 
 	$('.favorite-badge a').on('click', function(e) {
@@ -55,7 +48,9 @@ $(function() {
 		var active = that.parent().hasClass('active');		
 		var recipeid = that.data('recipeid');
 
-		var href = that.data('href'); 
+		var href = that.data('href');
+		// Determine whether to fave or unfave
+		// Active = has been faved, needs to be unfaved
 		if(active)
 			var href = '/api/unfavorite/'+recipeid;
 
@@ -86,6 +81,9 @@ $(function() {
 	});
 
 
+
+	// Unfave function for favorites view
+	// Should be coupled into above function
 	$('.unfavorite').on('click', function(e) {
 		e.preventDefault();
 		var that = $(this);
@@ -100,27 +98,19 @@ $(function() {
 				//recipeid: recipeid
 			},
 			success: function(data) {
-
+				// meh
 				var placeholder = '<div class="row"><div class="col-md-12"><h3>You have not favorited any recipes :(</h3><p><a class="btn btn-default" href="/recipes">Browse Recipes</a></p></div></div>';
-
 				sendAlert('info','Item has been removed from your favorites');
-
 				$(that).closest('.card').fadeOut(200, function() {
-
 					$(that).closest('.card').remove();
-
 					if( $('.card').length === 0) {
-
 						$('<div/>', {
 							class: 'container',
 							html: placeholder
 						}).appendTo('.main');
-
 					}
 				});
 			}
 		});
-	})
-
-
-})
+	});
+});
