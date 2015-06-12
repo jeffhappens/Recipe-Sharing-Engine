@@ -47,9 +47,16 @@ $(function() {
 
 	$('.favorite-badge a').on('click', function(e) {
 		e.preventDefault();
+
 		var that = $(this);
 		var href = that.data('href');
 		var recipeid = that.data('recipeid');
+
+		var strings = {
+			added: 'Recipe added to Favorites',
+			removed: 'Recipe removed from Favorites'
+		};
+
 		$.ajax({
 			type: 'POST',
 			url: href,
@@ -61,48 +68,16 @@ $(function() {
 				console.log(data);
 				if(data.success) {
 					that.closest('.favorite-badge').toggleClass('active');
-					sendAlert('info','Recipe added to favorites')
+					sendAlert('info', strings.added)
 				}
 				else {
 					that.closest('.favorite-badge').toggleClass('active');
-					sendAlert('info','Recipe removed from favorites')					
+					sendAlert('info', strings.removed)
 				}
 			}
 		});
 	});
 
-
-
-	$('.add-favorite-link').on('click', function(e) {
-		e.preventDefault();
-		var that = $(this);
-		var href = that.data('href');
-		var recipeid = that.data('recipeid');
-
-		$.ajax({
-			type: 'POST',
-			url: href,
-			data: {
-				_token: $('meta[name=_token]').attr('content'),
-				recipeid: recipeid
-			},
-			success: function(data) {
-				console.log(data);
-				if(data.success) {
-					sendAlert('info', '<i class="fa fa-2x fa-check"></i> '+data.recipe.recipe_title+' has been added to your favorites');
-				}
-				// Unauthorized attempt (not logged in)
-				else if(data.errorCode == 503) {
-					sendAlert('warning', '<i class="fa fa-2x fa-exclamation"></i> '+data.errorText);
-				}
-				else {
-					sendAlert('warning', '<i class="fa fa-2x fa-exclamation"></i> '+data.errorText);
-				}
-			}
-
-		})
-
-	})
 
 	$('.unfavorite').on('click', function(e) {
 		e.preventDefault();
