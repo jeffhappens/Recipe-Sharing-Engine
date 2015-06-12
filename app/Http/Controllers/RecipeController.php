@@ -57,6 +57,7 @@
 					'recipes.created_at',
 					'recipes.recipe_enable_comments',
 					'users.display_name',
+					'users.username',
 					'media.media_filename',
 					'ingredients.ingredient_name',
 					'instructions.instructions_name',
