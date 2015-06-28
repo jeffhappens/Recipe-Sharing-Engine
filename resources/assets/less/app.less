@@ -66,6 +66,7 @@ a.top {
 body {
 	background: url(/img/confectionary.png);
 	background: url(/img/symphony.png);
+
 	padding-top: 55px;
 }
 
@@ -151,16 +152,29 @@ p.add-to-favorites {
 
 }
 
+.col-md-4 {
+	padding-left: 0;
+}
+
+section.content .row:hover {
+	cursor: pointer;
+}
 p.description { padding: 15px 0; }
+
+.avatar {
+	margin-right: 5px;
+}
+.avatar:hover {
+	transform: scale(1.1);
+}
 
 .card {
 
-	background: rgba(255,255,255,0.7);
-	padding: 15px;
-	margin: 0 0 30px;
-	border: 1px solid #ededed;
-	box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
+	background: rgba(255,255,255,0.85);
+	border: 10px solid #fff;
 	position: relative;
+	transition: 0.3s ease all;
+
 
 	ul, ol {
 
@@ -191,8 +205,7 @@ p.description { padding: 15px 0; }
 	.favorite-badge.active {
 		a {
 			color: gold;	
-		}
-		
+		}		
 	}
 
 }

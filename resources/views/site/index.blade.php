@@ -26,7 +26,7 @@
 						@endif
 						
 						@if($recipe->media_filename)
-						<img class="img-responsive" src="/uploads/{{ $recipe->media_filename }}" />
+						<img class="img-responsive" src="/uploads/medium/{{ $recipe->media_filename }}" />
 						@endif
 
 						<h2 class="title-over">{{ $recipe->recipe_title }}</h2>

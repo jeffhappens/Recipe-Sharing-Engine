@@ -3,6 +3,13 @@ $(function() {
 	// Animate alert windows off the screen	
 	$('.alert').delay(3500).slideUp(200);
 
+	$('section.content .row').on('click', function() {
+		var recipeid = $(this).data('recipeid');
+		var slug = $(this).data('slug');
+		var href = '/recipes/'+recipeid+'/'+slug;
+		location.href = href;
+	})
+
 
 	// Back to Top button animation
 	$(window).scroll(function() {

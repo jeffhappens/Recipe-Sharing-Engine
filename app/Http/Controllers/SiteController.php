@@ -26,11 +26,12 @@
 					'recipes.recipe_slug',
 					'recipes.recipe_description',
 					'media.media_filename',
+					'recipes.recipe_author',
 					'users.username',
 					'users.display_name',
 					'favorites.favorites_userid'
 				])
 			];
-			return view('site.index', $data);
+			return view('site.test', $data);
 		}
 	}

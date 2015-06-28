@@ -23,6 +23,8 @@ Route::get('/auth/logout','AuthController@logout');
 Route::get('/refer/{email}/{token}','ReferController@refer');
 Route::post('/refer/{email}/{token}','ReferController@complete');
 
+Route::get('/member/{id}','MemberController@profile');
+
 
 Route::group(['middleware' => 'auth'], function() {
 	// Protected routes
