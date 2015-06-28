@@ -23,7 +23,6 @@
 							<h3>{{ $recipe->recipe_title }}</h3>
 							<p><small><a href="/member/{{ $recipe->recipe_author }}"><img class="avatar" src="http://www.gravatar.com/avatar/{{ md5($recipe->username) }}?s=24" /></a> {{ $recipe->display_name }} | {{ \Carbon\Carbon::createFromTimeStamp(strtotime($recipe->created_at))->diffForHumans() }}</small></p>
 							<p>{{ $recipe->recipe_description }}</p>
-							<p><a class="btn btn-default" href="">View</a></p>							
 						</div>
 					</div>
 				</div>
