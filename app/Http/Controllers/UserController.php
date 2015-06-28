@@ -184,11 +184,11 @@
 				// Fire up Intervention Image
 				// Widescreen
 				$image = \Image::make($file)
-				->resize(1440, null, function($constraint) {
+				->resize(1200, null, function($constraint) {
 					$constraint->aspectRatio();
 				})
 				// Also crop this one
-				->crop(1440,500)
+				->crop(1200,500)
 				->save(base_path().'/public/uploads/'.$filename);
 
 				// 500x500
