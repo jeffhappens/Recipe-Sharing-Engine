@@ -24,9 +24,9 @@
 					'media.media_filename'
 				])
 			];
-			
+
 			return view('user.recipes', $data);
-		
+
 		}
 
 
@@ -50,7 +50,7 @@
 					'recipes.recipe_description',
 					'media.media_filename',
 					'users.username',
-					'users.display_name'					
+					'users.display_name'
 				])
 			];
 			return view('user.favorites', $data);
@@ -78,7 +78,7 @@
 			else {
 				\Session::flash('error','You have already favorited this recipe');
 				return \Redirect::to('/recipes');
-			}			
+			}
 
 		}
 
