@@ -11,8 +11,11 @@ class MemberController extends Controller {
 
 	}
 
-	public function profile() {
-		return view('members.profile');
+	public function profile($id) {
+		$data = [
+			'member' => \App\User::find($id)
+		];
+		return view('members.profile', $data);
 	}
 
 }
