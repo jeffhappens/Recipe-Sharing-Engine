@@ -15,7 +15,7 @@ $(function() {
 		var passwordFieldType = $(passwordField).prop('type');
 
 		$(passwordField).prop('type', passwordFieldType == "password" ? "text" : "password");
-		$(this).text(text == "(Show)" ? "(Hide)" : "(Show)");
+		$(this).text(text == "Show" ? "Hide" : "Show");
 	});
 
 
