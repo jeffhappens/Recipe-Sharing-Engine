@@ -3,6 +3,26 @@ $(function() {
 	// Animate alert windows off the screen	
 	$('.alert').delay(3500).slideUp(200);
 
+
+
+
+	// Enable toggle of plain text passwords
+	$('.show-password').on('click', function(e) {
+
+		e.preventDefault();
+		var text = $(this).text();
+		var pwField = $(this).closest('.form-group').find('input[name=password]');
+		var pwFieldType = $(pwField).prop('type');
+
+		$(pwField).prop('type', pwFieldType == "password" ? "text" : "password");
+		$(this).text(text == "(Show)" ? "(Hide)" : "(Show)");
+	});
+
+
+
+
+
+
 	$('section.content .row').on('click', function() {
 		var recipeid = $(this).data('recipeid');
 		var slug = $(this).data('slug');
