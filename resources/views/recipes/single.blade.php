@@ -30,31 +30,33 @@
 						<img class="img-responsive" src="/uploads/{{ $sin->media_filename }}" />
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<br/>
-						<p>
-							<img src="http://www.gravatar.com/avatar/{{ md5($sin->username) }}?s=24" /> Author: {{ $sin->display_name }} |
-							{{ \Carbon\Carbon::createFromTimeStamp(strtotime($sin->created_at))->diffForHumans() }}
-						</p>
-						<p>{{ $sin->recipe_description }}</p>
+				<div class="foo" style="padding: 10px;">
+					<div class="row">
+						<div class="col-md-12">
+							<br/>
+							<p>
+								<img src="http://www.gravatar.com/avatar/{{ md5($sin->username) }}?s=24" /> Author: {{ $sin->display_name }} |
+								{{ \Carbon\Carbon::createFromTimeStamp(strtotime($sin->created_at))->diffForHumans() }}
+							</p>
+							<p>{{ $sin->recipe_description }}</p>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<h3>Ingredients</h3>
-						{!! $sin->ingredient_name !!}
+					<div class="row">
+						<div class="col-md-5">
+							<h3>Ingredients</h3>
+							{!! $sin->ingredient_name !!}
+						</div>
+						<div class="col-md-7">
+							<h3>Instructions</h3>
+							{!! $sin->instructions_name !!}
+						</div>
 					</div>
-					<div class="col-md-7">
-						<h3>Instructions</h3>
-						{!! $sin->instructions_name !!}
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						@if($sin->recipe_enable_comments)
-							@include('includes.comments')
-						@endif
+					<div class="row">
+						<div class="col-md-12">
+							@if($sin->recipe_enable_comments)
+								@include('includes.comments')
+							@endif
+						</div>
 					</div>
 				</div>
 			@endforeach
