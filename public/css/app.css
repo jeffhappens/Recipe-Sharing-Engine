@@ -6396,7 +6396,7 @@ p.description {
           transform: scale(1.1);
 }
 .card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   border: 10px solid #fff;
   position: relative;
   transition: 0.3s ease all;
