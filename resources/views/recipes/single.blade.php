@@ -33,7 +33,6 @@
 					<div class="foo" style="padding: 10px 20px;">
 						<div class="row">
 							<div class="col-md-12">
-								<br/>
 								<p>
 									<img src="http://www.gravatar.com/avatar/{{ md5($sin->username) }}?s=24" /> Author: {{ $sin->display_name }} |
 									{{ \Carbon\Carbon::createFromTimeStamp(strtotime($sin->created_at))->diffForHumans() }}
