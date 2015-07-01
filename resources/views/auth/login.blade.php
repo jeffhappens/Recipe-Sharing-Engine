@@ -14,6 +14,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
+				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<form action="/auth/login" method="POST" role="form" data-parsley-validate>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -30,6 +31,7 @@
 						</div>
 					</form>
 				</div>
+				<div class="col-md-2"></div>
 			</div>
 		</div>
 	</section>
