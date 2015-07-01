@@ -6254,6 +6254,9 @@ a {
   background: #9ed847;
   color: #fff;
 }
+.show-password {
+  cursor: pointer;
+}
 .unfavorite {
   position: absolute;
   top: 5px;
