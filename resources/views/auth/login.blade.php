@@ -25,7 +25,7 @@
 						<div class="form-group">
 							<label for="password">Password <small>(<a class="show-password">Show</a>)</small></label>
 							<input type="password" name="password" class="form-control" required data-parsley-error-message="* Please provide a password" />
-							<p><a href="">I forgot my password</a></p>
+							<!--<p><a href="">I forgot my password</a></p>-->
 						</div>
 						<div class="form-group">
 							<button type="submit" name="submit_login" class="btn btn-default">Sign In</button>
