@@ -35,7 +35,7 @@
 							<div class="col-md-12">
 								<p>
 									<img src="http://www.gravatar.com/avatar/{{ md5($sin->username) }}?s=24" /> Author: {{ $sin->display_name }} |
-									{{ \Carbon\Carbon::createFromTimeStamp(strtotime($sin->created_at))->diffForHumans() }}
+									Posted: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($sin->created_at))->diffForHumans() }}
 								</p>
 								<p>{{ $sin->recipe_description }}</p>
 							</div>
