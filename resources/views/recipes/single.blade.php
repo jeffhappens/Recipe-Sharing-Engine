@@ -30,7 +30,7 @@
 						<img class="img-responsive" src="/uploads/{{ $sin->media_filename }}" />
 					</div>
 				</div>
-				<div class="foo" style="padding: 10px;">
+				<div class="foo" style="padding: 10px 20px;">
 					<div class="row">
 						<div class="col-md-12">
 							<br/>
