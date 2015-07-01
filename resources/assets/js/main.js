@@ -8,13 +8,13 @@ $(function() {
 
 	// Enable toggle of plain text passwords
 	$('.show-password').on('click', function(e) {
-
 		e.preventDefault();
-		var text = $(this).text();
-		var pwField = $(this).closest('.form-group').find('input[name=password]');
-		var pwFieldType = $(pwField).prop('type');
 
-		$(pwField).prop('type', pwFieldType == "password" ? "text" : "password");
+		var text = $(this).text();
+		var passwordField = $(this).closest('.form-group').find('input[name=password]');
+		var passwordFieldType = $(passwordField).prop('type');
+
+		$(passwordField).prop('type', passwordFieldType == "password" ? "text" : "password");
 		$(this).text(text == "(Show)" ? "(Hide)" : "(Show)");
 	});
 
