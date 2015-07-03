@@ -9,10 +9,14 @@
 		public function index() {}
 
 		public function profile($id) {
+
 			$data = [
 				'member' => \App\User::find($id)
 			];
+
 			return view('members.profile', $data);
+			
 		}
+
 
 	}

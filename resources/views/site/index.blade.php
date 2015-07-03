@@ -4,6 +4,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
+
 					<h2><i class="fa fa-cutlery"></i> Browse Recipes</h2>
 				</div>
 			</div>
@@ -18,6 +19,7 @@
 					<div class="card">
 						@if(!Auth::check())
 						@else
+
 						<div class="favorite-badge @if($recipe->favorites_userid) active @endif">
 							<a href="" data-href="/api/favorite/{{ $recipe->id }}" data-recipeid="{{ $recipe->id }}">
 								<i class="fa fa-2x fa-star"></i>
@@ -30,6 +32,7 @@
 						@endif
 
 						<h2 class="title-over">{{ $recipe->recipe_title }}</h2>
+						<h2>ojhljkjlkjl</h2>
 						<p>
 							<img src="https://s.gravatar.com/avatar/{{ md5($recipe->username) }}?s=24" />
 							By {{ $recipe->display_name }} on {{ date('m/d/Y', strtotime($recipe->created_at)) }}
