@@ -15,7 +15,8 @@
 	<section>
 		<div class="container">
 			<div class="card">
-				@if(!Auth::check())
+				
+{{-- 				@if(!Auth::check())
 				@else
 					<div class="favorite-badge @if($sin->favorites_userid) active @endif">
 						<a href="" data-href="/api/favorite/{{ $sin->id }}" data-recipeid="{{ $sin->id }}">
@@ -23,7 +24,7 @@
 						</a>
 					</div>
 				@endif
-
+ --}}
 				@foreach($single as $sin)
 					<div class="row">
 						<div class="col-md-12">
