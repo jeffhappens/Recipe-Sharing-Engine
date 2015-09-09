@@ -22,13 +22,15 @@
 								@if($recipe->media_filename)
 								<div class="col-md-4">
 									<img class="img-responsive" src="/uploads/medium/{{ $recipe->media_filename }}" />
-									<p><a class="btn btn-block btn-default" href="/recipes/{{ $recipe->id }}/{{ $recipe->recipe_slug }}">View Recipe</a>
 								</div>
 								@endif
 								<div class="col-md-8">
 									<h3>{{ $recipe->recipe_title }}</h3>
-									<p>Added {{ date('m/d/Y', strtotime($recipe->created_at)) }}</p>
-									<p>{{ $recipe->recipe_description }}</p>
+									<p>Added on {{ date('m/d/Y', strtotime($recipe->created_at)) }}</p>
+									<p>
+										<a class="btn btn-xs btn-default" href="/recipes/{{ $recipe->id }}/{{ $recipe->recipe_slug }}">View Recipe</a>
+										<a class="btn btn-xs btn-default" href="/recipes/{{ $recipe->id }}/{{ $recipe->recipe_slug }}">Edit Recipe</a>
+									</p>
 								</div>
 							</div>
 						</div>

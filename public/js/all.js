@@ -5,6 +5,14 @@ $(function() {
 
 
 
+	// Clone image upload field
+	$('.add-image-field').on('click', function(e) {
+		e.preventDefault();
+		$('.image-field').find('input:first').clone().appendTo('.image-field');
+	})
+
+
+
 
 	// Enable toggle of plain text passwords
 	$('.show-password').on('click', function(e) {

@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
 	<section class="heading">
 		<div class="container">
@@ -10,27 +9,21 @@
 			</div>
 		</div>
 	</section>
-
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
 					{!! Form::open(['role' => 'form', 'files' => true]) !!}
-					{{-- <form action="/user/share" method="POST" role="form" enctype="multipart/form-data"> --}}
-
 						<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
 						<div class="form-group">
 							<label for="recipe_title">Recipe Title</label>
 							<input type="text" name="recipe_title" class="form-control" placeholder="My Delicious Recipe" />
 						</div>
-
 						<div class="form-group">
 							<label for="recipe_description">Recipe Description</label>
 							<textarea name="recipe_description" class="form-control"></textarea>
-						</div>						
-
+						</div>
 						<div class="form-group">
 							<label for="recipe_categoryid">Recipe Category</label>
 							<select name="recipe_categoryid" class="form-control">
@@ -41,11 +34,11 @@
 								@endforeach
 							</select>
 						</div>
-
 						<div class="form-group">
 							<label for="recipe_image">Recipe Image</label>
 							<input type="file" name="recipe_image" class="form-control" />
 						</div>
+
 
 						<div class="form-group">
 							<label for="recipe_ingredients">Recipe Ingredients</label>

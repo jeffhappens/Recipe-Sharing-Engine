@@ -5,7 +5,6 @@ $(function() {
 
 
 
-
 	// Enable toggle of plain text passwords
 	$('.show-password').on('click', function(e) {
 		e.preventDefault();
