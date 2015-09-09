@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('/scree', function() { return 'SCREEE'; });
+
 Route::get('/','SiteController@index');
 
 Route::get('/recipes','RecipeController@recipes');
