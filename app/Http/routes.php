@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/foo/bar', function() {
+	return '';
+});
+
 
 Route::get('/','SiteController@index');
 
