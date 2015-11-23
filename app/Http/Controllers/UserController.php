@@ -155,6 +155,8 @@
 
 		public function postShare() {
 
+			return $_POST;
+
 			$recipe = new \App\Recipe;
 			$recipe->recipe_title = \Input::get('recipe_title');
 			$recipe->recipe_slug = str_slug(\Input::get('recipe_title'));

@@ -6253,6 +6253,7 @@ ul.dropdown-menu,
   cursor: pointer;
   line-height: 2.5;
   padding: .3em .7em .4em;
+  border: 1px solid #2d2d2d;
 }
 a {
   color: #2d2d2d;
