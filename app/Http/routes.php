@@ -15,7 +15,12 @@
 Route::get('/','SiteController@index');
 
 Route::get('/recipes','RecipeController@recipes');
+
+Route::get('/recipes/category/{slug}','RecipeController@getByCategory');
+
 Route::get('/recipes/{id}/{slug}','RecipeController@single');
+
+
 
 Route::get('/auth/login','AuthController@login');
 Route::post('/auth/login','AuthController@postLogin');

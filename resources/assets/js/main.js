@@ -3,6 +3,32 @@ $(function() {
 	// Animate alert windows off the screen	
 	$('.alert').delay(3500).slideUp(200);
 
+	var selectedCategories = [];
+
+	$('.label').on('click', function() {
+		$('.selectedCategories').empty();
+		var categoryid = $(this).data('categoryid');
+		var index = selectedCategories.indexOf(categoryid);
+
+		$(this).toggleClass('label-primary label-default');
+		// Check if selection exists already.
+		// If so we remove it from the array
+		// Else we add it to the array
+		if(selectedCategories.indexOf(categoryid) !=-1) {
+			selectedCategories.splice(index,1);			
+		}
+		else {
+			selectedCategories.push(categoryid);	
+		}
+		selectedCategories.forEach(function(value) {
+			$('<input/>', {
+				type: 'hidden',
+				name: 'recipe_categoryid[]',
+				value: value
+			}).appendTo('.selectedCategories');
+		})
+	});
+
 
 
 	// Enable toggle of plain text passwords

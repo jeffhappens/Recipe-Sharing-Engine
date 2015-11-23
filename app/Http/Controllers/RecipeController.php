@@ -69,4 +69,16 @@
 
 		}
 
+		public function getByCategory($slug) {
+			$data = [
+				'recipes' => \App\Recipe::join('categories','categories.id','=','recipes.recipe_categoryid')
+				->where('categories.category_title', $slug)
+				->get()
+			];
+
+			return $data;
+
+		}
+
+
 	}

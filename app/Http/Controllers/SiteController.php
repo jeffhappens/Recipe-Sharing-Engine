@@ -34,4 +34,5 @@
 			];
 			return view('site.test', $data);
 		}
+
 	}

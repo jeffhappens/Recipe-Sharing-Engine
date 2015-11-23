@@ -16,6 +16,7 @@
 					<div class="card">
 					{!! Form::open(['role' => 'form', 'files' => true]) !!}
 						<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+						<div class="selectedCategories hide"></div>
 						<div class="form-group">
 							<label for="recipe_title">Recipe Title</label>
 							<input type="text" name="recipe_title" class="form-control" placeholder="My Delicious Recipe" />
@@ -25,14 +26,12 @@
 							<textarea name="recipe_description" class="form-control"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="recipe_categoryid">Recipe Category</label>
-							<select name="recipe_categoryid" class="form-control">
+							<label for="" />Recipe Category(s)</label>
+							<div style="font-size: 16px;">
 								@foreach($categories as $category)
-								<option value="{{ $category->id }}">
-									{{ $category->category_title }}
-								</option>
+								<span data-categoryid="{{ $category->id }}" class="label label-default">{{ $category->category_title }}</span>
 								@endforeach
-							</select>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="recipe_image">Recipe Image</label>
