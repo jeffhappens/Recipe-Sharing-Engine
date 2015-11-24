@@ -56,7 +56,8 @@ Route::group(['middleware' => 'auth'], function() {
 	});
 	Route::post('/api/photos/remove/{filename}', function($filename) {
 		unlink($_SERVER['DOCUMENT_ROOT'].'/uploads/'.$filename);
-		return 'File Removed';
+		return $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$filename;
+		//return 'File Removed';
 		
 	});
 

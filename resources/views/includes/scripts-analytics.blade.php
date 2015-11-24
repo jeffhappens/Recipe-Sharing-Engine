@@ -39,7 +39,6 @@
 		},
 		init: function() {
 			this.on('removedfile', function(file, responseText) {
-				console.log(file.name);
 				$.ajax({
 					type: 'POST',
 					url: '/api/photos/remove/'+file.name,
