@@ -41,8 +41,8 @@
 			this.on('removedfile', function(file, responseText) {
 				$.ajax({
 					type: 'POST',
-					url: '/api/photos/remove/'+file.name,
-					data: '_token={{ csrf_token() }}',
+					url: '/api/photos/remove',
+					data: '_token={{ csrf_token() }}&filename='+file.name,
 					success: function(response) {
 						console.log(response);
 					}

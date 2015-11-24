@@ -54,7 +54,8 @@ Route::group(['middleware' => 'auth'], function() {
 		move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$_FILES['file']['name']);
 		return 'File Uploaded';
 	});
-	Route::post('/api/photos/remove/{filename}', function($filename) {
+	Route::post('/api/photos/remove', function() {
+		$filename = \Input::get('filename');
 		unlink($_SERVER['DOCUMENT_ROOT'].'/uploads/'.$filename);
 		return $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$filename;
 		//return 'File Removed';
