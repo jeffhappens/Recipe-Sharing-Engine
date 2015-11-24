@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/','SiteController@index');
 
 Route::get('/recipes','RecipeController@recipes');
@@ -47,6 +49,17 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/admin','AdminController@index');
 	Route::get('/admin/users','AdminController@users');
 	Route::get('/admin/recipes','AdminController@recipes');
+
+	Route::post('/api/photos/upload', function() {
+		move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$_FILES['file']['name']);
+		return 'File Uploaded';
+	});
+	Route::post('/api/photos/remove/{filename}', function($filename) {
+		unlink($_SERVER['DOCUMENT_ROOT'].'/uploads/'.$filename);
+		return 'File Removed';
+		
+	});
+
 
 
 });
